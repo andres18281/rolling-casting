@@ -3,9 +3,44 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="View/css/estilos_logueado.css">
+	<link rel="stylesheet" href="css/estilos_logueado.css">
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style type="text/css">
+ #actor{
+  background: url('img/icon-actor.ico');
+  border-radius: 50%;
+  width: 120px;
+  height: 120px; 
+  background-repeat: no-repeat;
+  border-radius: 50%;
+ }  
+ #actor:hover {
+  background: url('img/icon-actor.ico');
+  -webkit-animation:rotateIn 1s;
+ }
+
+ @-webkit-keyframes rotateIn {
+  from {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+</style>
+
+
 </head>
 <body>
   <div id="wrapper">
@@ -46,32 +81,23 @@
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a  href="#">
-                       Buscar Talento
+                       Opciones
                     </a>
                 </li>
-                
                 <li>
-                    <a id="btn_seart" href="#">Busqueda</a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Menus</li>
-                    <li><a href="#">Sub Opcion 1</a></li>
-                    <li><a href="#">Sub Opcion 2</a></li>
-                    <li><a href="#">Sub Opcion 3</a></li>
-                    <li><a href="#">Sub Opcion 4</a></li>
-                    <li><a href="#">Sub Opcion 5</a></li>
-                  </ul>
+                    <a id="btn_seart" href="#">Mis solicitudes</a>
                 </li>
                 <li>
-                    <a href="#">Servicios</a>
+                    <a href="#">Diligenciar informacion mia</a>
                 </li>
                 <li>
-                    <a href="#">Contacto</a>
+                    <a id="btn_add_habili" href="#">Agregar Habilidad</a>
                 </li>
                 <li>
-                    <a href="#">Redes sociales</a>
+                    <a id="btn_add_experi" href="#">Agregar Experiencia</a>
+                </li>
+                <li>
+                    <a href="#">Ver Historial</a>
                 </li>
             </ul>
         </nav>
@@ -85,13 +111,8 @@
 				<span class="hamb-bottom"></span>
             </button>
             <div class="container-fluid">
-               <div class="col-lg-8 ">
-                <div class="col-md-5 col-lg-5">
-                  <div id="buscar"></div>  
-                </div>
-                <div class="col-md-7 col-lg-7">
-                 
-                </div>  
+               <div class="col-lg-8 col-md-offset-2 col-lg-offset-2">
+                  <div id="opcion"></div>
                </div>
             </div>
         </div>
@@ -108,14 +129,14 @@
 <script>
 
  $(document).ready(function(){
-  
-  
-  $("#btn_seart").click(function(){
-  	$( "#buscar" ).load( "View/template/buscar.html");
+
+  $("#btn_add_experi").click(function(){
+    $("#opcion").html("");
+    $("#opcion").load('template/add_experiencia.html');  
   });
-  
-  $(document).on('click','#btn_buscar',function(){
-  	alert('prueba');
+  $("#btn_add_habili").click(function(){
+    $("#opcion").html("");
+    $("#opcion").load('template/add_habilidad.html'); 
   });
 
   var trigger = $('.hamburger'),
