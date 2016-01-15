@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2015 a las 22:35:34
+-- Tiempo de generación: 15-01-2016 a las 21:48:11
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.5.30
 
@@ -98,6 +98,29 @@ CREATE TABLE `habilidad` (
   `Habilidad_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `habilidad`
+--
+
+INSERT INTO `habilidad` (`Habilidad_id`, `Habilidad_descrip`, `Habilidad_tipo`) VALUES
+(122, 'Novela', 1221112),
+(123, 'Cine', 1221112),
+(125, 'documental', 1221112),
+(126, 'extras', 1221112),
+(133, 'Fiestas', 1232323),
+(134, 'Presenta', 1232323),
+(135, 'Sorteos', 1232323),
+(136, 'Eventos', 1232323),
+(111122, 'Rock', 1234534),
+(111123, 'Salsa', 1234534),
+(111124, 'Raegueton', 1234534),
+(111125, 'Vallenato', 1234534),
+(111126, 'Folclor', 1234534),
+(111127, 'Corridos', 1234534),
+(111128, 'Deporte', 1253434),
+(111129, 'De Cuerpo', 1253434),
+(111131, 'Promosion', 1253434);
+
 -- --------------------------------------------------------
 
 --
@@ -156,8 +179,18 @@ CREATE TABLE `solicitudes` (
 
 CREATE TABLE `tip_habilidad` (
   `Tip_id` int(11) NOT NULL,
-  `Tip_nomb` int(11) NOT NULL
+  `Tip_nomb` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tip_habilidad`
+--
+
+INSERT INTO `tip_habilidad` (`Tip_id`, `Tip_nomb`) VALUES
+(1221112, 'Actor'),
+(1232323, 'Modelo'),
+(1234534, 'Cantantes'),
+(1253434, 'Animadores');
 
 --
 -- Índices para tablas volcadas
@@ -201,8 +234,9 @@ ALTER TABLE `fotografia_rolling`
 --
 ALTER TABLE `habilidad`
   ADD PRIMARY KEY (`Habilidad_id`),
-  ADD UNIQUE KEY `Habilidad_tipo` (`Habilidad_tipo`),
-  ADD KEY `Habilidad_tipo_2` (`Habilidad_tipo`);
+  ADD KEY `Habilidad_tipo_2` (`Habilidad_tipo`),
+  ADD KEY `Habilidad_tipo_3` (`Habilidad_tipo`),
+  ADD KEY `Habilidad_tipo` (`Habilidad_tipo`);
 
 --
 -- Indices de la tabla `list_habilidad`
@@ -255,7 +289,7 @@ ALTER TABLE `fotografia_rolling`
 -- AUTO_INCREMENT de la tabla `habilidad`
 --
 ALTER TABLE `habilidad`
-  MODIFY `Habilidad_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Habilidad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111132;
 --
 -- AUTO_INCREMENT de la tabla `list_habilidad`
 --
@@ -270,7 +304,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `tip_habilidad`
 --
 ALTER TABLE `tip_habilidad`
-  MODIFY `Tip_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Tip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1253435;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

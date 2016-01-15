@@ -92,5 +92,7 @@
    	  $data = parent::consultas($sql); 
    	  return $data; 
    }
+
+   
  }
 ?>
